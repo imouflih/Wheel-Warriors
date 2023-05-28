@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "557099209416",
+    "project_id": "wheel-warriors-c45d0",
+    "storage_bucket": "wheel-warriors-c45d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557099209416:android:6ab3606a0928c634ed8bfd",
+        "android_client_info": {
+          "package_name": "com.project.wheel_warriors.wheel_warriors"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBizsDyAFV8V83BFlfrHIBQI903nEry0eI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
