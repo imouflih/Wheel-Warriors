@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:wheel_warriors/pages/home/widgets/header.dart';
+import 'package:wheel_warriors/pages/home/widgets/search_bar.dart';
 import '../../auth.dart';
 import 'package:flutter/material.dart';
 import 'widgets/navigation_bar.dart';
@@ -19,21 +21,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        padding: const EdgeInsets.all(20),
-        child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ...buildHeader(),
+            buildSearchBar(),
+          ],
         ),
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: BuildFAB(),
       bottomNavigationBar: buildNavigationBar(),
-      backgroundColor: Colors.grey,
+      backgroundColor: const Color.fromARGB(255, 228, 228, 228),
     );
   }
 }
