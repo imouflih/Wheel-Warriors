@@ -25,7 +25,7 @@ class _BuildFABState extends State<BuildFAB> {
                   const Text(
                     "Search items by",
                     style: TextStyle(
-                      color: Colors.black54,
+                      color: Colors.white54,
                     ),
                   ),
                   const Row(
@@ -36,6 +36,7 @@ class _BuildFABState extends State<BuildFAB> {
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
                       Icon(
@@ -76,12 +77,24 @@ class _BuildFABState extends State<BuildFAB> {
               ),
             ),
           ),
+          backgroundColor: Colors.black,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
+            ),
+          ),
         );
       },
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(50),
+        ),
+      ),
       child: const Icon(
         Icons.list_alt_rounded,
-        color: Colors.blue,
+        color: Colors.white,
       ),
     );
   }
@@ -95,30 +108,40 @@ class _BuildFABState extends State<BuildFAB> {
       padding: const EdgeInsets.symmetric(
         vertical: Constants.kPadding,
       ),
-      child: InkWell(
-        onTap: () {},
-        borderRadius: BorderRadius.circular(25),
-        child: Container(
-          width: double.infinity,
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 2 * Constants.kPadding,
-            children: [
-              CircleAvatar(
-                backgroundColor: color,
-                child: Icon(
-                  iconData,
-                  color: Colors.white,
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 0.5, // You can adjust the width as you want
+          ),
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: InkWell(
+          onTap: () {}, // TODO: go to category page of the item
+          borderRadius: BorderRadius.circular(25),
+          child: Container(
+            width: double.infinity,
+            child: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 2 * Constants.kPadding,
+              children: [
+                CircleAvatar(
+                  backgroundColor: color,
+                  child: Icon(
+                    iconData,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              Text(
-                category,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
+                Text(
+                  category,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

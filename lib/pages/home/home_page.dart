@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: BuildFAB(),
       bottomNavigationBar: buildNavigationBar(),
+      backgroundColor: Colors.grey,
     );
   }
 }
