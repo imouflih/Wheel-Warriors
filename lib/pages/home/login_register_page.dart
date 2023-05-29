@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../auth.dart';
+import '../../auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -53,15 +53,28 @@ class _LoginPageState extends State<LoginPage> {
     TextEditingController controller,
   ) {
     return TextField(
+      // i want in the Text field to be written enter your email
       controller: controller,
       decoration: InputDecoration(
         labelText: title,
+        labelStyle: const TextStyle(color: Colors.white),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+        // i want placeholder to be written enter your email when the text field is empty
+        hintText: title == 'Email' ? 'Tape your email' : 'Tape your password',
+        hintStyle: const TextStyle(color: Colors.grey),
       ),
+      style: const TextStyle(color: Colors.white),
     );
   }
 
   Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'errorMessage: $errorMessage');
+    return Text(errorMessage == '' ? '' : '$errorMessage',
+        style: const TextStyle(color: Colors.red));
   }
 
   Widget _submitButton() {
@@ -93,11 +106,20 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: _title(),
+        backgroundColor: Colors.black,
+        elevation: 0,
+        centerTitle: true,
+        titleTextStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 30,
+          color: Colors.white,
+        ),
       ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
         padding: const EdgeInsets.all(20),
+        color: Colors.black,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -106,6 +128,13 @@ class _LoginPageState extends State<LoginPage> {
             _emailField('Password', _passwordController),
             _errorMessage(),
             _submitButton(),
+            Text(
+              isLogin
+                  ? "It's your first time here ?"
+                  : 'Already have an account ?',
+              style: const TextStyle(
+                  decoration: TextDecoration.underline, color: Colors.white),
+            ),
             _loginOrRegisterButton(),
           ],
         ),
