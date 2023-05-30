@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
       ),
-      bottomNavigationBar: buildNavigationBar(),
+      bottomNavigationBar: buildNavigationBar(context),
       backgroundColor: const Color.fromARGB(255, 228, 228, 228),
     );
   }
