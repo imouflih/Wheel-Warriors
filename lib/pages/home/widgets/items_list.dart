@@ -98,18 +98,20 @@ class BuildItemList extends StatelessWidget {
                           elevation: 4,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
-                            // child: Image.asset(
-                            //   filteredItems[index].image,
-                            //   height: 180,
-                            //   width: 120,
-                            //   fit: BoxFit.cover,
-                            // ),
+                            child: Image.network(
+                              filteredItems[index].image,
+                              height: 200,
+                              width: 250,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         Container(
                           width: 120,
                           child: Text(
                             filteredItems[index].name,
+                            style: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ),
                         Container(
@@ -117,7 +119,8 @@ class BuildItemList extends StatelessWidget {
                           child: Text(
                             "Price: " + filteredItems[index].price.toString(),
                             style: const TextStyle(
-                                fontSize: 10, color: Colors.blueGrey),
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 172, 155, 9)),
                           ),
                         ),
                       ],

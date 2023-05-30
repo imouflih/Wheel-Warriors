@@ -10,11 +10,11 @@ List<Widget> buildItemDisplay({required ItemModel item}) => [
         elevation: 4,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
-          // child: Image.asset(
-          //   item.image,
-          //   height: 350,
-          //   fit: BoxFit.cover,
-          // ),
+          child: Image.network(
+            item.image,
+            height: 350,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
       Padding(
