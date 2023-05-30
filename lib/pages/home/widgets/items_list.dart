@@ -8,10 +8,12 @@ final List<ItemModel> items = ItemModel.items;
 class BuildItemList extends StatelessWidget {
   final String input;
   final String category;
+  final VoidCallback onSeeAllPressed;
 
   BuildItemList({
     required this.input,
     required this.category,
+    required this.onSeeAllPressed,
   });
 
   @override
@@ -44,7 +46,7 @@ class BuildItemList extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: onSeeAllPressed,
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       vertical: 2.0,

@@ -42,6 +42,12 @@ class _HomePageState extends State<HomePage> {
             BuildItemList(
               input: input,
               category: selectedCategory,
+              onSeeAllPressed: () {
+                setState(() {
+                  input = '';
+                  selectedCategory = '';
+                });
+              },
             ),
           ],
         ),

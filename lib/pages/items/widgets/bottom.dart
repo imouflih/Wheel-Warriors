@@ -1,5 +1,6 @@
 import 'package:wheel_warriors/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 List<Widget> buildBottom() => [
       const Expanded(
@@ -19,7 +20,9 @@ List<Widget> buildBottom() => [
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Share.share('Check out this amazing item on our app!');
+              },
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
                     vertical: 4.0, horizontal: Constants.kPadding),
