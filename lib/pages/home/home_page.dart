@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wheel_warriors/pages/home/widgets/header.dart';
+import 'package:wheel_warriors/pages/home/widgets/items_list.dart';
 import 'package:wheel_warriors/pages/home/widgets/search_bar.dart';
 import '../../auth.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ class HomePage extends StatelessWidget {
           children: [
             ...buildHeader(),
             buildSearchBar(),
+            BuildItemList(),
           ],
         ),
       ),
