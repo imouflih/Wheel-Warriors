@@ -7,13 +7,19 @@ final List<ItemModel> items = ItemModel.items;
 
 class BuildItemList extends StatelessWidget {
   final String input;
+  final String category;
 
-  const BuildItemList({required this.input});
+  BuildItemList({
+    required this.input,
+    required this.category,
+  });
 
   @override
   Widget build(BuildContext context) {
     final filteredItems = items
-        .where((item) => item.name.toLowerCase().contains(input.toLowerCase()))
+        .where((item) =>
+            item.name.toLowerCase().contains(input.toLowerCase()) &&
+            (category == "" || item.category == category))
         .toList();
 
     return Container(

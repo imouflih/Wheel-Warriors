@@ -2,6 +2,10 @@ import 'package:wheel_warriors/constants.dart';
 import 'package:flutter/material.dart';
 
 class BuildFAB extends StatefulWidget {
+  final Function(String) onCategorySelected;
+
+  BuildFAB({required this.onCategorySelected});
+
   @override
   _BuildFABState createState() => _BuildFABState();
 }
@@ -117,7 +121,11 @@ class _BuildFABState extends State<BuildFAB> {
           borderRadius: BorderRadius.circular(25),
         ),
         child: InkWell(
-          onTap: () {}, // TODO: go to category page of the item
+          onTap: () {
+            Navigator.of(context).pop(); // Close the bottom sheet
+            widget.onCategorySelected(
+                category); // Notify the parent widget of the selected category
+          },
           borderRadius: BorderRadius.circular(25),
           child: Container(
             width: double.infinity,

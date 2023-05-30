@@ -18,6 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final User? user = Auth().currentUser;
   String input = '';
+  String selectedCategory = '';
 
   Widget _userName() {
     String username = user?.email?.split('@').first ?? 'User name';
@@ -38,13 +39,22 @@ class _HomePageState extends State<HomePage> {
                 input = newInput;
               });
             }),
-            BuildItemList(input: input),
+            BuildItemList(
+              input: input,
+              category: selectedCategory,
+            ),
           ],
         ),
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: BuildFAB(),
+      floatingActionButton: BuildFAB(
+        onCategorySelected: (category) {
+          setState(() {
+            selectedCategory = category;
+          });
+        },
+      ),
       bottomNavigationBar: buildNavigationBar(),
       backgroundColor: const Color.fromARGB(255, 228, 228, 228),
     );
