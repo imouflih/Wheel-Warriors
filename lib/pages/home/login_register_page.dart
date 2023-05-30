@@ -124,6 +124,12 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.network(
+              "https://zupimages.net/up/23/22/1pjy.png",
+              height: 200,
+              width: 250,
+              fit: BoxFit.cover,
+            ),
             _emailField('Email', _emailController),
             _emailField('Password', _passwordController),
             _errorMessage(),
