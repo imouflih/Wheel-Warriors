@@ -8,10 +8,16 @@ import 'widgets/navigation_bar.dart';
 import 'widgets/fab.dart';
 import 'widgets/app_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final User? user = Auth().currentUser;
+  String input = '';
 
   Widget _userName() {
     String username = user?.email?.split('@').first ?? 'User name';
@@ -27,8 +33,12 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ...buildHeader(),
-            buildSearchBar(),
-            BuildItemList(),
+            buildSearchBar(onSubmitted: (String newInput) {
+              setState(() {
+                input = newInput;
+              });
+            }),
+            BuildItemList(input: input),
           ],
         ),
       ),

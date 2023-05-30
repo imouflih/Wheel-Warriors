@@ -6,8 +6,16 @@ import 'package:flutter/material.dart';
 final List<ItemModel> items = ItemModel.items;
 
 class BuildItemList extends StatelessWidget {
+  final String input;
+
+  const BuildItemList({required this.input});
+
   @override
   Widget build(BuildContext context) {
+    final filteredItems = items
+        .where((item) => item.name.toLowerCase().contains(input.toLowerCase()))
+        .toList();
+
     return Container(
       width: double.infinity,
       color: Colors.black.withOpacity(0.1),
@@ -31,10 +39,6 @@ class BuildItemList extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text("See all",
-                      style: TextStyle(
-                        color: Colors.white,
-                      )),
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       vertical: 2.0,
@@ -46,6 +50,10 @@ class BuildItemList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                   ),
+                  child: const Text("See all",
+                      style: TextStyle(
+                        color: Colors.white,
+                      )),
                 )
               ],
             ),
@@ -55,7 +63,7 @@ class BuildItemList extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: List.generate(
-                items.length,
+                filteredItems.length,
                 (index) => Padding(
                   padding: const EdgeInsets.only(
                     bottom: Constants.kPadding * 3,
@@ -68,7 +76,7 @@ class BuildItemList extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => ItemPage(
-                            item: items[index],
+                            item: filteredItems[index],
                           ),
                         ),
                       );
@@ -83,7 +91,7 @@ class BuildItemList extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             // child: Image.asset(
-                            //   items[index].image,
+                            //   filteredItems[index].image,
                             //   height: 180,
                             //   width: 120,
                             //   fit: BoxFit.cover,
@@ -93,13 +101,13 @@ class BuildItemList extends StatelessWidget {
                         Container(
                           width: 120,
                           child: Text(
-                            items[index].name,
+                            filteredItems[index].name,
                           ),
                         ),
                         Container(
                           width: 120,
                           child: Text(
-                            "Price: " + items[index].price.toString(),
+                            "Price: " + filteredItems[index].price.toString(),
                             style: const TextStyle(
                                 fontSize: 10, color: Colors.blueGrey),
                           ),

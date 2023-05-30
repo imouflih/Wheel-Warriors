@@ -1,9 +1,13 @@
 import 'package:wheel_warriors/constants.dart';
 import 'package:flutter/material.dart';
 
-Widget buildSearchBar() => Padding(
+final _controller = TextEditingController();
+
+Widget buildSearchBar({required void Function(String) onSubmitted}) => Padding(
       padding: const EdgeInsets.all(2 * Constants.kPadding),
       child: TextField(
+        controller: _controller,
+        onSubmitted: onSubmitted,
         decoration: InputDecoration(
           hintText: "Search for an item",
           fillColor: Colors.black.withOpacity(0.1),
